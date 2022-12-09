@@ -36,5 +36,8 @@
     <ClCompile Include="类和对象%284%29.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="类和对象(5).cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -134,6 +134,7 @@
     <ClCompile Include="类和对象%282%29.cpp" />
     <ClCompile Include="类和对象%281%29.cpp" />
     <ClCompile Include="程序的内存模型.cpp" />
+    <ClCompile Include="类和对象(5).cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
