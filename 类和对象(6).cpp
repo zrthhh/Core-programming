@@ -122,6 +122,68 @@ void test03()
 * 4.赋值运算符operator=，对属性值进行拷贝
 * 如果类中有属性指向堆区，做赋值操作是也会出现深浅拷贝问题
 */
+class Person
+{
+public:
+	Person(int age)
+	{
+		m_Age = new int(age);
+	}
+	~Person()
+	{
+		if (m_Age != NULL) {
+			delete m_Age;
+			m_Age = NULL;
+		}
+	}
+	
+	//重载赋值运算符
+	 Person& operator=(Person& p)
+	{
+		//编译器提供的是浅拷贝
+		//应该先判断是否有属性再堆区，如果有先释放干净，然后再深拷贝
+		if (m_Age != NULL) {
+			delete m_Age;
+			m_Age = NULL;
+		}
+		//深拷贝
+		m_Age = new int(*p.m_Age);
+		return *this;
+	}
+
+
+	int* m_Age;
+};
+void test04()
+{
+	Person p1(18);
+	Person p2(20);
+	p2 = p1;
+}
+
+
+
+
+/*函数调用运算符重载
+* 函数调用运算符()也可以重载
+* 由于重载后使用的方式非常像函数的调用，因此称为仿函数
+* 仿函数没有固定的写法，非常灵活
+*/
+class myprint
+{
+public:
+	void operator()(string text)
+	{
+		cout << text << endl;
+	}      
+};
+
+void test05()
+{
+	myprint print;
+	print("hello world");
+}
+
 int main()
 {
 
